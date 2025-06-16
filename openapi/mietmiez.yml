@@ -66,6 +66,8 @@ paths:
           description: User information updated
         '400':
           description: Invalid input data
+        '401':
+          description: User is not logged in
 
   /user/{username}:
     get:
@@ -117,8 +119,6 @@ paths:
       responses:
         '200':
           description: Successfully logged out
-        '401':
-          description: Not logged in or invalid session
   /user/reset-password:
     post:
       tags:
@@ -349,7 +349,6 @@ components:
         id:
           type: integer
           example: 5647
-          minLength: 6
         date:
           type: string
           format: date
@@ -367,7 +366,7 @@ components:
         animal:
           type: string
           example: Rabbit
-          minLength: 8
+          minLength: 3
         images:
           type: array
           items:
@@ -387,7 +386,7 @@ components:
         animal:
           type: string
           example: Rabbit
-          minLength: 8
+          minLength: 3
         images:
           type: array
           items:
@@ -447,7 +446,6 @@ components:
         id:
           type: integer
           example: 456
-          minLength: 6
         title:
           type: string
           example: Dog
