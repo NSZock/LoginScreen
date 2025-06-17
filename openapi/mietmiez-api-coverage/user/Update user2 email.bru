@@ -1,0 +1,37 @@
+meta {
+  name: Update user2 email
+  type: http
+  seq: 16
+}
+
+put {
+  url: {{baseUrl}}/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "first-name": "",
+    "last-name": "",
+    "username": "",
+    "email": "{{userEmail2-new}}",
+    "password": "",
+    "city": "",
+    "zip-code": ""
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:pre-request {
+  // retrieve the cookie string you stored earlier
+  const cookie = bru.getVar("cookie_user2");
+  
+  if (cookie) {
+    // set it as the Cookie header on the outgoing request
+    req.setHeader("Cookie", cookie);
+  }
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Search advertisements
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/advertisement/search
+  body: none
+  auth: none
+}
+
+params:query {
+  ~animal: 
+  ~zip-code: 
+  ~title: 
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Deletes advertisement
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/advertisement/:advertisement-id
+  body: none
+  auth: none
+}
+
+params:path {
+  advertisement-id: 
+}

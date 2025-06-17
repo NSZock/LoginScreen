@@ -1,0 +1,24 @@
+meta {
+  name: Changes advertisement
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/advertisement/:advertisement-id
+  body: json
+  auth: none
+}
+
+params:path {
+  advertisement-id: 
+}
+
+body:json {
+  {
+    "title": "",
+    "description": "",
+    "animal": "",
+    "images": []
+  }
+}
