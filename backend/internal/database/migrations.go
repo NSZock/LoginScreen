@@ -8,6 +8,7 @@ import . "boschXdaimlerLove/MietMiez/internal/logger"
 var migrationsList = []interface{}{
 	&models.Advertisement{},
 	&models.Category{},
+	&models.Favourite{},
 	&models.PasswordResetToken{},
 	&models.Session{},
 	&models.User{},

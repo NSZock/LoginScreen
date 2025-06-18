@@ -264,7 +264,7 @@ func UserGetFavourites(c *fiber.Ctx) error {
 	dbInstance := database.GetDB()
 	result := dbInstance.
 		Preload("User").
-		Where("User = ?", user).Find(&favourites)
+		Where("user_id = ?", user.ID).Find(&favourites)
 
 	if result.Error != nil && !errors.Is(result.Error, gorm.ErrRecordNotFound) {
 		Logger.Err(result.Error).Msg("Getting user favourites failed")
