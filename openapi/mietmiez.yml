@@ -69,19 +69,19 @@ paths:
         '401':
           description: User is not logged in
 
-  /user/{username}:
+  /user/{email}:
     get:
       tags:
         - user
       summary: Obtain information about specified user
       parameters:
-        - name: username
+        - name: email
           in: path
-          description: Username of user
+          description: Email of user
           required: true
           schema:
             type: string
-            example: JoAp
+            example: abc@mietmiez.com
       responses:
         '200':
           description: User found
@@ -413,12 +413,12 @@ components:
     LoginRequest:
       type: object
       required:
-        - username
+        - email
         - password
       properties:
-        username:
+        email:
           type: string
-          example: JoAp
+          example: abc@mietmiez.com
         password:
           type: string
           format: password
@@ -455,7 +455,6 @@ components:
       required:
         - first-name
         - last-name
-        - username
         - email
         - city
       properties:
@@ -467,10 +466,6 @@ components:
           type: string
           example: Appleseed
           minLength: 3
-        username:
-          type: string
-          example: JoAp
-          minLength: 4
         email:
           type: string
           example: john.appleseed@mail.com
