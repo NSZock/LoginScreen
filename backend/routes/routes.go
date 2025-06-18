@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/encryptcookie"
+	"github.com/gofiber/fiber/v2/middleware/monitor"
 )
 
 import . "boschXdaimlerLove/MietMiez/internal/logger"
@@ -51,6 +52,8 @@ func SetupRoutes(app *fiber.App) {
 	// enable logging of requests
 	app.Use(middleware.LoggingMiddleware())
 
+	// monitoring tool for requests
+	app.Get("/v1/metrics", monitor.New(monitor.Config{Title: "MietMiez API Metrics", Refresh: 1}))
 	// registering v1 api
 	setupV1Routes(app)
 	// space for SetupV2Routes
