@@ -1,0 +1,15 @@
+meta {
+  name: Log out unknown session
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/user/logout
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

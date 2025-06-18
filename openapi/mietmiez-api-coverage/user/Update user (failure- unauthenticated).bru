@@ -1,0 +1,27 @@
+meta {
+  name: Update user (failure: unauthenticated)
+  type: http
+  seq: 17
+}
+
+put {
+  url: {{baseUrl}}/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "first-name": "",
+    "last-name": "",
+    "username": "",
+    "email": "{{userEmail2-new}}",
+    "password": "",
+    "city": "",
+    "zip-code": ""
+  }
+}
+
+assert {
+  res.status: eq 401
+}

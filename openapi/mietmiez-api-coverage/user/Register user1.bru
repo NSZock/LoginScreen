@@ -1,0 +1,27 @@
+meta {
+  name: Register user1
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "first-name": "bruno",
+    "last-name": "bru",
+    "username": "{{userName1}}",
+    "email": "{{userEmail1}}",
+    "password": "{{userPw1}}",
+    "city": "stuttgart-city",
+    "zip-code": "70400"
+  }
+}
+
+assert {
+  res.status: eq 201
+}

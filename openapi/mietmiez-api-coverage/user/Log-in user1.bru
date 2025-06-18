@@ -1,0 +1,34 @@
+meta {
+  name: Log-in user1
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/user/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "{{userName1}}",
+    "password": "{{userPw1}}"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  // grab any Set‑Cookie headers the server sent
+  const cookies = res.getHeader('set-cookie');
+  
+  if (cookies) {
+    // join them into a single header string…
+    const cookieHeader = cookies.join('; ');
+    // …and stash into a Bruno variable
+    bru.setVar("cookie_user1", cookieHeader);
+  }
+}

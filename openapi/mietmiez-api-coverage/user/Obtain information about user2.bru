@@ -1,0 +1,20 @@
+meta {
+  name: Obtain information about user2
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{baseUrl}}/user/:username
+  body: none
+  auth: none
+}
+
+params:path {
+  username: {{userName2}}
+}
+
+assert {
+  res.body: isJson
+  res.body.email: eq {{userEmail2-new}}
+}

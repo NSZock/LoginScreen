@@ -1,0 +1,15 @@
+meta {
+  name: Obtain advertisement information
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/advertisement/:advertisement-id
+  body: none
+  auth: none
+}
+
+params:path {
+  advertisement-id: 
+}

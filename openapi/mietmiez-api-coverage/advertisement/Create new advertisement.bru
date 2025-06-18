@@ -1,0 +1,22 @@
+meta {
+  name: Create new advertisement
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/advertisement
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": "",
+    "date": "",
+    "title": "",
+    "description": "",
+    "animal": "",
+    "images": []
+  }
+}

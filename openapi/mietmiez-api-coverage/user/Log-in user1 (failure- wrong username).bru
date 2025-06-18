@@ -1,0 +1,22 @@
+meta {
+  name: Log-in user1 (failure: wrong username)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/user/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "{{userName2}}",
+    "password": "{{userPw1}}"
+  }
+}
+
+assert {
+  res.status: eq 401
+}

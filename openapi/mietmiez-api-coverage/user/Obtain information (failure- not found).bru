@@ -1,0 +1,19 @@
+meta {
+  name: Obtain information (failure: not found)
+  type: http
+  seq: 19
+}
+
+get {
+  url: {{baseUrl}}/user/:username
+  body: none
+  auth: none
+}
+
+params:path {
+  username: {{userName2}}sadbasdbasbd
+}
+
+assert {
+  res.status: eq 404
+}
