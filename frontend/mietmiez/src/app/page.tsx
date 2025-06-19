@@ -203,6 +203,7 @@ export default function Home() {
             </div>
           </div>
           
+          {/* ALL Rights*/}
           <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
             <p>&copy; 2025 MietMiez. Alle Rechte vorbehalten.</p>
           </div>
