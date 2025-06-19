@@ -1,13 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import PetCard from "./design/Petcard";
 
 export default function Home() {
-  // State for categories dropdown
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Alle Kategorien");
   
-  // State for distance dropdown
   const [distanceOpen, setDistanceOpen] = useState(false);
   const [selectedDistance, setSelectedDistance] = useState("+ 50 km");
   
@@ -24,6 +23,7 @@ export default function Home() {
     "Andere"
   ];
   
+  // Sample data TODO: Replace with actual data fetching logic
   const distances = [
     "+ 5 km",
     "+ 10 km",
@@ -32,6 +32,16 @@ export default function Home() {
     "+ 100 km",
     "+ 200 km"
   ];
+
+  // Sample pet data TODO: Replace with actual data fetching logic
+  const samplePets = [
+    {
+      name: "Bello",
+      imageUrl: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop",
+      address: "Stuttgart, Baden-Württemberg"
+    },
+  ];
+
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -108,8 +118,6 @@ export default function Home() {
                   <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
               </button>
-              
-
 
               {distanceOpen && (
                 <div className="absolute mt-1 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
@@ -149,15 +157,26 @@ export default function Home() {
           </div>
         </div>
       </header>
-
-
       {/* Header END */}
 
 
       {/* Main Content */}
       <main className="flex-1 p-8 bg-gray-50">
-        <h1 className="text-3xl text-center text-[#47702d]">Willkommen bei MietMiez</h1>
-              
+        <h1 className="text-3xl text-center text-[#47702d] mb-8">Willkommen bei MietMiez</h1>
+
+        {/* Pet Cards Grid Example */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {samplePets.map((pet, index) => (
+              <PetCard
+                key={index}
+                name={pet.name}
+                imageUrl={pet.imageUrl}
+                address={pet.address}
+              />
+            ))}
+          </div>
+        </div>
       </main>
 
       {/* Footer */}
